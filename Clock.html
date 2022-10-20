@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        #container {
+          display: flex;
+        
+            
+             justify-content: center;
+            align-items: center; 
+           
+        }
+        #childView {
+            background-image: url(./c2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+          
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+            background-color: white;
+            border: 4px solid black;
+            
+
+        }
+        
+        #hour{
+            transform-origin: bottom;
+           position: absolute;
+              left: 49%;
+              top: 90px;
+            width: 6px;
+            height: 110px;
+            background-color: red;
+        }
+        #minutes{
+            transform-origin: bottom;
+            position: absolute;
+              left: 49%;
+              top: 70px;
+            width: 4px;
+            height: 130px;
+            background-color: green;
+        }
+          #second{
+            position: absolute;
+              left: 49%;
+              top: 50px;
+           transform-origin: bottom;
+            width: 2px;
+            height: 150px;
+            background-color: yellow;
+        }
+    
+      </style>
+    
+</head>
+<body>
+    
+    <div id="container">
+        
+        <div id="childView">
+            
+            
+           <div id="hour"></div>
+           <div id="minutes"></div>
+            <div id="second"></div>
+       
+            </div>
+         
+        </div>
+    </div>
+<script>
+  
+  let hour =document.getElementById('hour')
+  let min =document.getElementById('minutes')
+  let sec =document.getElementById('second')
+  var d1=new Date();
+  let i = (d1.getHours()+d1.getMinutes()/60+d1.getSeconds()/3600)*30;
+  let j = (d1.getMinutes()+d1.getSeconds()/60)*6;
+  let k = d1.getSeconds()*6;
+
+  setInterval(() => {
+    i = i+(1/120)
+    j = j+0.1
+    k = k+6
+
+    sec.style.transform = `rotate(${k}deg)`
+    min.style.transform = `rotate(${j}deg)`
+    hour.style.transform = `rotate(${i}deg)`
+  }, 1000);
+</script>
+
+</body>
+</html>

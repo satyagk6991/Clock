@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+  
+     div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       background-image: url(./hand.jpg);
+       width: 100%;
+       height: 700px;
+     }  
+  
+    h1{
+        display: inline;
+        font-size: 100px;
+        
+    }
+    #hour{
+        color: darkblue;
+    }
+    #minute{
+        color: dodgerblue;
+    }
+  
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="hour"></h1>
+      <h1>:</h1>
+      <h1 id="minute"></h1>
+      <h1>:</h1>
+      <h1 id="second"></h1>
+    </div>
+
+    <script>
+      let hr = document.getElementById("hour");
+      let min = document.getElementById("minute");
+      let sec = document.getElementById("second");
+
+      setInterval(
+      (()=>{let d1 = new Date();
+
+      let i = d1.getHours();
+      let j = d1.getMinutes();
+      let k = d1.getSeconds();
+      hr.innerHTML = i;
+      min.innerHTML = j;
+      sec.innerHTML = k;
+    }),1000)
+      
+    </script>
+  </body>
+</html>
